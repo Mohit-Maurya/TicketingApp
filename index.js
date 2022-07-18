@@ -1,6 +1,8 @@
 var express = require("express")
 var app=express()
 
+var {price, gst, totalPrice} = require('./main.js');
+
 //Public Domain
 app.use(express.static('public'))
 
@@ -10,8 +12,13 @@ app.get('/main', function (req, res) {
 
 app.get('/show_data', function (req, res) {  
     response = {
-        fname:req.query.fname,
-        lname:req.query.lname
+        to:req.query.to,
+        from:req.query.from,
+        // doj: req.query.doj,
+        // returnDate: req.query.return-date,
+        // price: price,
+        // gst: gst,
+        // totalPrice: totalPrice
     };
     console.log(response);
     res.end(JSON.stringify(response))
